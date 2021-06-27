@@ -9,24 +9,24 @@ To run the tests:
 To rubocop:
 `rubocop`
 
-This should return first a list of number of visits for page, in a descending order,
-followed by a list of unique views per page, also in descending order.
+This should return first a list of number of visits for a page, in a descending order, followed by a list of unique views per page, also in descending order.
 
 ## Post-mortem
 
 * I have decided to have an exposed class to call from the command line. I've not played around with
   ruby scripts and this was the quickest solution I went with that worked and allowed me to focus on
-  the rest of the app.
+  the rest of the app
 * I have separated the roles between the logs being parsed and being presented
 * I have originally written a test to check that log_presenter would return the formatted logs, and had
-  therefore coupled the LogPresenter to the LogParser. I have amended the test and rectified the classes.
+  therefore coupled the LogPresenter to the LogParser. I have amended the test and rectified the classes
 
 ## Given more time
 
 * I would clean up and rename the confusingly redundant Parser.rb
 * I would investigate whether I can use rspec to test Parser.rb
 * I would find a cleaner way to test without block strings (maybe fixtures?)
-* I would not make the assumption that the logs given have the right format and return if they do not
+* I would not make the assumption that the logs given have the right format and return gracefully if they do not
+* I have spent some time wondering why my tests were failing to detect any objects returned from my classes, forgetting I was just using `puts`
 
 ## Original TODO
 * Create app class that calls parser
